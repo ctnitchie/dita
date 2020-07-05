@@ -3,8 +3,12 @@
  "concept.dtd">
 <concept id="ditaspecialization" xml:lang="en-us">
   <title>Overview of DITA extension facilities</title>
-  <shortdesc>DITA provides three extension facilities: configuration, constraint, and
-    specialization. In addition, generalization augments specialization.</shortdesc>
+  <shortdesc>DITA provides
+    <?oxy_delete author="chris" timestamp="20200627T134250-0400" content="three"?><?oxy_insert_start author="chris" timestamp="20200627T134250-0400"?>four<?oxy_insert_end?>
+    extension facilities: configuration, constraint,
+    <?oxy_insert_start author="chris" timestamp="20200627T134256-0400"?>mix-in,
+    <?oxy_insert_end?>and specialization. In addition, generalization augments
+    specialization.</shortdesc>
   <conbody>
     <dl>
       <dlentry>
@@ -16,8 +20,8 @@
       </dlentry>
       <dlentry>
         <dt>Specialization</dt>
-        <dd><ph>Specialization enables the creation of new element types <ph >in a way
-              that preserves the ability to interchange those new element types with conforming DITA
+        <dd><ph>Specialization enables the creation of new element types <ph>in a way that preserves
+              the ability to interchange those new element types with conforming DITA
               applications.</ph> Specializations are implemented as vocabulary modules, which are
             integrated into document-type shells.</ph><p>Specializations are implemented as sets of
             vocabulary modules, each of which declares the markup and entities that are unique to a
@@ -34,11 +38,19 @@
       </dlentry>
       <dlentry>
         <dt>Constraint</dt>
-        <dd>Constraint enables the <ph >restriction</ph> of content models and
-          attribute lists for individual elements. There is no need to modify the vocabulary
-          modules. Constraints are implemented as constraint modules, which are integrated into
-          document-type shells.</dd>
+        <dd>Constraint enables the <ph>restriction</ph> of content models and attribute lists for
+          individual elements. There is no need to modify the vocabulary modules. Constraints are
+          implemented as constraint modules, which are integrated into document-type shells.</dd>
       </dlentry>
+      <?oxy_insert_start author="chris" timestamp="20200627T134323-0400"?>
+      <dlentry rev="2.0-Issue15">
+        <dt>Mix-in</dt>
+        <dd>Mix-ins enable the extension of content models and attribute lists for individual
+          elements. Mix-ins are the opposite of constraints, in that they add elements and
+          attributes to specific content models and attribute lists rather than removing them.</dd>
+      </dlentry>
+      <?oxy_insert_end?>
     </dl>
   </conbody>
 </concept>
+<?oxy_options track_changes="on"?>

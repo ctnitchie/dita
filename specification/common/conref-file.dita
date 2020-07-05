@@ -7,74 +7,74 @@
                 specification.</shortdesc>
         <conbody>
                 <section id="section-1">
-                        <title>Short descriptions for archSpec topics</title>
-                        <!--Also used in "Basic concepts" topic-->
-                        <p><ph id="topics-shortdesc">In DITA, a topic is the basic unit of authoring
-          and reuse. All DITA topics have the same basic structure: a title and, optionally, a body
-          of content. <ph product="part-2">Topics can be generic or more specialized; specialized
-            topics represent more specific information types or semantic roles, for example,
+      <title>Short descriptions for archSpec topics</title>
+      <!--Also used in "Basic concepts" topic-->
+      <p><ph id="topics-shortdesc">In DITA, a topic is the basic unit of authoring and reuse. All
+          DITA topics have the same basic structure: a title and, optionally, a body of content. <ph
+            product="part-2">Topics can be generic or more specialized; specialized topics represent
+            more specific information types or semantic roles, for example,
               <xmlelement>concept</xmlelement>, <xmlelement>task</xmlelement>, or
               <xmlelement>reference</xmlelement></ph></ph></p>
-                        <p><ph id="maps-shortdesc">DITA maps are documents that organize topics and
-          other resources into structured collections of information. DITA maps specify hierarchy
-          and the relationships among the topics; they also provide the <ph>contexts</ph> in which
-          keys are defined and resolved.</ph></p>
-                        <p><ph id="information-typing-shortdesc">Information typing is the practice
-          of identifying types of topics, such as concept, reference, and task, to clearly
-          distinguish between different types of information. Topics that answer different reader
-          questions (How do I? What is?) can be categorized with different information types. The
-          base information types provided by DITA specializations (for example, technical content,
-          machine industry, and learning and training) provide starter sets of information types
-          that can be adopted immediately by many technical and business-related
-        organizations.</ph></p>
-                        <p><ph id="linking-shortdesc">DITA depends heavily on links. The purposes
-                                        for which it provides links include defining the content and
-                                        organization of publication structures (DITA maps),
-                                        topic-to-topic navigation links and cross references, and
-                                        reuse of content by reference. All DITA links use the same
-                                        addressing mechanisms, either URI-based addresses or
-                                        indirect addresses using keys and key references.</ph></p>
-                        <p><ph id="addressing-shortdesc" >DITA provides two
-          addressing mechanisms. DITA addresses either are direct URI-based addresses, or they are
-          indirect key-based addresses. Within DITA documents, individual elements are addressed by
-          unique identifiers specified on the <xmlatt>id</xmlatt> attribute. DITA defines two
-          fragment-identifier syntaxes; one is the full fragment-identifier syntax, and the other is
-          an abbreviated fragment-identifier syntax that can be used when addressing non-topic
-          elements from within the same topic.</ph></p>
-                        <p><ph id="conref-shortdesc">The DITA <xmlatt>conref</xmlatt>,
-            <xmlatt>conkeyref</xmlatt>, <xmlatt>conrefend</xmlatt>, and <xmlatt 
-            >conaction</xmlatt> attributes provide mechanisms for reusing content within DITA topics
-          or maps. <ph >These mechanisms can be used both to <ph 
-              >pull and push</ph> content.</ph></ph></p>
-                        <p><ph id="conditional-processing-shortdesc">Conditional processing, also
-                                        known as profiling, is the filtering or flagging of
-                                        information based on processing-time
-                                        criteria.<!--Attribute-based profiling, also known as conditional processing or applicability, is the use of classifying metadata that enables the filtering, flagging, searching, indexing, and other processing based on the association of an element with one or more values in a specific classification domain.--></ph></p>
-                        <p><ph id="configuration-shortdesc">A document type shell is an XML grammar
-          file that specifies the elements and attributes that are allowed in a DITA document. The
-          document type shell integrates structural modules, domain modules, and constraint modules.
-          In addition, a document type shell specifies whether and how topics can nest.</ph></p>
-                        <p><ph id="specialization-shortdesc">The specialization feature of DITA
-          allows for the creation of new element types and attributes that are explicitly and
-          formally derived from existing types. This facilitates interchange of conforming DITA
-          content and ensures a minimum level of common processing for all DITA content. It also
-          allows specialization-aware processors to add specialization-specific processing to
-          existing base processing. </ph></p>
-                        <p><ph id="contraints-shortdesc">Constraint modules define additional
-                                        constraints for vocabulary modules in order to restrict
-                                        content models or attribute lists for specific element
-                                        types, remove certain extension elements from an integrated
-                                        domain module, or replace base element types with
-                                        domain-provided, extension element types.</ph></p>
+      <p><ph id="maps-shortdesc">DITA maps are documents that organize topics and other resources
+          into structured collections of information. DITA maps specify hierarchy and the
+          relationships among the topics; they also provide the <ph>contexts</ph> in which keys are
+          defined and resolved.</ph></p>
+      <p><ph id="information-typing-shortdesc">Information typing is the practice of identifying
+          types of topics, such as concept, reference, and task, to clearly distinguish between
+          different types of information. Topics that answer different reader questions (How do I?
+          What is?) can be categorized with different information types. The base information types
+          provided by DITA specializations (for example, technical content, machine industry, and
+          learning and training) provide starter sets of information types that can be adopted
+          immediately by many technical and business-related organizations.</ph></p>
+      <p><ph id="linking-shortdesc">DITA depends heavily on links. The purposes for which it
+          provides links include defining the content and organization of publication structures
+          (DITA maps), topic-to-topic navigation links and cross references, and reuse of content by
+          reference. All DITA links use the same addressing mechanisms, either URI-based addresses
+          or indirect addresses using keys and key references.</ph></p>
+      <p><ph id="addressing-shortdesc">DITA provides two addressing mechanisms. DITA addresses
+          either are direct URI-based addresses, or they are indirect key-based addresses. Within
+          DITA documents, individual elements are addressed by unique identifiers specified on the
+            <xmlatt>id</xmlatt> attribute. DITA defines two fragment-identifier syntaxes; one is the
+          full fragment-identifier syntax, and the other is an abbreviated fragment-identifier
+          syntax that can be used when addressing non-topic elements from within the same
+          topic.</ph></p>
+      <p><ph id="conref-shortdesc">The DITA <xmlatt>conref</xmlatt>, <xmlatt>conkeyref</xmlatt>,
+            <xmlatt>conrefend</xmlatt>, and <xmlatt>conaction</xmlatt> attributes provide mechanisms
+          for reusing content within DITA topics or maps. <ph>These mechanisms can be used both to
+              <ph>pull and push</ph> content.</ph></ph></p>
+      <p><ph id="conditional-processing-shortdesc">Conditional processing, also known as profiling,
+          is the filtering or flagging of information based on processing-time
+          criteria.<!--Attribute-based profiling, also known as conditional processing or applicability, is the use of classifying metadata that enables the filtering, flagging, searching, indexing, and other processing based on the association of an element with one or more values in a specific classification domain.--></ph></p>
+      <p><ph id="configuration-shortdesc">A document type shell is an XML grammar file that
+          specifies the elements and attributes that are allowed in a DITA document. The document
+          type shell integrates structural modules, domain modules, and constraint modules. In
+          addition, a document type shell specifies whether and how topics can nest.</ph></p>
+      <p><ph id="specialization-shortdesc">The specialization feature of DITA allows for the
+          creation of new element types and attributes that are explicitly and formally derived from
+          existing types. This facilitates interchange of conforming DITA content and ensures a
+          minimum level of common processing for all DITA content. It also allows
+          specialization-aware processors to add specialization-specific processing to existing base
+          processing. </ph></p>
+      <?oxy_insert_start author="chris" timestamp="20200627T153309-0400"?>
+      <p><ph id="content-model-specializations-shortdesc">Content model specializations allow the
+          modification of content models and attribute lists of elements in a document type shell's
+          vocabulary. They come in two forms: constraints, which constrain the allowed elements and
+          attributes within a given element, and mix-ins, which add elements and attributes to an
+          element's contents. Some content model specializations are both constraints and
+          mix-ins.</ph></p>
+      <?oxy_insert_end?>
+      <p><ph id="contraints-shortdesc">Constraint modules define additional constraints for
+          vocabulary modules in order to restrict content models or attribute lists for specific
+          element types, remove certain extension elements from an integrated domain module, or
+          replace base element types with domain-provided, extension element types.</ph></p>
       <p><ph id="coding-req-topic-type-modules-shortdesc">Topic-type vocabulary modules <term
-            outputclass="RFC-2119">MUST</term> conform to additional coding
-          requirements for defining <term>default topic nesting</term>. Default topic nesting
-          defines whether topics are permitted to nest and what topic types are permitted to
-          nest.</ph></p>
+            outputclass="RFC-2119">MUST</term> conform to additional coding requirements for
+          defining <term>default topic nesting</term>. Default topic nesting defines whether topics
+          are permitted to nest and what topic types are permitted to nest.</ph></p>
       <p><ph id="keys-scopes-and-key-precedence-shortdesc">For purposes of key definition
           precedence, the scope-qualified key definitions from a child scope are considered to occur
           at the location of the scope-defining element within the parent scope.</ph></p>
-                </section>
+    </section>
 
                 <section id="section-2">
                         <title>Short descriptions for langRef topics</title>
@@ -336,3 +336,4 @@ to alert more birds to the presence of your bird feeder.&lt;/shortdesc&gt;
     </section>
         </conbody>
 </concept>
+<?oxy_options track_changes="on"?>

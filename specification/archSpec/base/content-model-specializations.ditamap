@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
+<map>
+ <title>Content model specializations</title>
+ <topicref href="content-model-specializations.dita">
+  <topicref href="constraints.dita"/>
+  <topicref href="mixins.dita"/>
+  <topicref href="constraint-rules.dita"/>
+  <topicref href="constraints-processing-interoperability.dita"/>
+  <mapref href="examples-content-model-specializations.ditamap"/>
+ </topicref>
+</map>
+

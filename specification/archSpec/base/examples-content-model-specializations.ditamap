@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
 <map>
- <title>Constraints</title>
- <topicref href="examples-constraints.dita">
+ <title>Content model specializations</title>
+ <topicref href="examples-content-model-specializations.dita">
   <topicref href="example-contraints-redefine-content-model.dita"/>
   <topicref href="example-contraints-redefine-content-model-attributes.dita"/>
+  <topicref href="example-mixin-section.dita" rev="2.0-Issue15"/>
+  <topicref href="example-entry-attribute-mixin.dita" rev="2.0-Issue15"/>
   <topicref href="example-contraints-subset-domain.dita"/>
   <topicref href="example-contraints-replace-base-element-w-domain-extensions.dita"/>
   <topicref href="example-contraints-apply-multiple-constraints.dita"/>

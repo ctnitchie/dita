@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="mixins" rev="2.0-Issue15">
+    <title>Mix-ins</title>
+    <shortdesc>Mix-in modules enable the inclusion of specialized elements or attributes in specific
+        element types.</shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>mix-ins<indexterm>overview</indexterm></indexterm>
+            </keywords>
+        </metadata>
+    </prolog>
+    <conbody>
+        <p>Mix-in modules perform the following functions.</p>
+        <dl>
+            <dlentry>
+                <dt>Extend content models</dt>
+                <dd>Mix-in modules extend content models by allowing specializations of existing
+                    elements at specific locations where their base elements are allowed. Such
+                    specialized elements must be defined in a separate domain specialization that
+                    declares the default attribute list and content model, but does not make the
+                    element available globally.</dd>
+            </dlentry>
+            <dlentry>
+                <dt>Extend attribute lists</dt>
+                <dd>Mix-in modules modify attribute lists by adding attributes specialized from
+                    either <xmlatt>base</xmlatt> or <xmlatt>props</xmlatt>. Attribute definitions
+                    used in attribute list mix-ins can either be declared in the same module as the
+                    mix-in or as separate attribute domains.</dd>
+            </dlentry>
+        </dl>
+    </conbody>
+</concept>

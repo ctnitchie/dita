@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="mixin-rules">
+    <title>Mix-in rules</title>
+    <shortdesc>There are certain rules that apply to the design and implementation of
+        mix-ins.</shortdesc>
+    <conbody>
+        <p>The content model of an element after a mix-in is applied must remain compatible with the
+            unmodified content model in its generalized form. This rule carries a number of
+            important implications.</p>
+        <ul id="ul_on3_tmv_dmb">
+            <li>Elements added to content models must be specializations of existing elements from
+                the content model, and must be allowed only where their specialization base is
+                allowed. For example, when creating a mix-in adding a specialization of
+                    <xmlelement>data</xmlelement> to <xmlelement>ol</xmlelement>, the element must
+                only be allowed before any <xmlelement>li</xmlelement> elements, as that is the only
+                place <xmlelement>data</xmlelement> is allowed.</li>
+            <li>Content models including mix-ins including elements whose specialization base is
+                allowed only once must either allow a choice between the unspecialized element and
+                the specialized element, or require the use of the specialized element instead of
+                the base element. For example, consider a mix-in adding a
+                    <xmlelement>nomarkuptitle</xmlelement> element specialized from
+                    <xmlelement>title</xmlelement> to the <xmlelement>topic</xmlelement> element.
+                The modified content model must either remove <xmlelement>title</xmlelement> or
+                provide an "exactly-once" choice between <xmlelement>title</xmlelement> and
+                    <xmlelement>nomarkuptitle</xmlelement>. It must not allow both
+                    <xmlelement>title</xmlelement> and <xmlelement>nomarkuptitle</xmlelement> to
+                exist inside the same <xmlelement>topic</xmlelement> element.</li>
+        </ul>
+        <p>Mix-in modules must not include the grammar definitions of the elements being added. Such
+            elements must be defined in separate specialization modules and referenced from the
+            mix-in. Attributes may either be declared in the same module or separately.</p>
+        <p>The content model and attributes of an element can be modified by only one constraint or
+            mix-in module. If several modules exist that modify the content model or attributes for
+            a specific element, those modules must be replaced with a new module that reflects the
+            aggregation of the original constraint and mix-in modules.</p>
+    </conbody>
+</concept>

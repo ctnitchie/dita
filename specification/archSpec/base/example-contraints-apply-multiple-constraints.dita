@@ -1,28 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
-<concept xml:lang="en-us" id="reference_cfb_ck4_5p">
-  <title>Example: Apply multiple constraints to a single document-type shell</title>
+<?oxy_attributes rev="&lt;change type=&quot;inserted&quot; author=&quot;chris&quot; timestamp=&quot;20200627T213257-0400&quot; /&gt;"?>
+<concept xml:lang="en-us" id="reference_cfb_ck4_5p" rev="2.0-Issue15">
+  <title>Example: Apply multiple
+    <?oxy_delete author="chris" timestamp="20200629T214541-0400" content="constraints"?><?oxy_insert_start author="chris" timestamp="20200627T212616-0400"?>content
+    model specializations<?oxy_insert_end?> to a single document-type shell</title>
   <shortdesc>You can apply multiple constraints to a single document-type shell. However, there can
     be only one constraint for a given element or domain. </shortdesc>
   <prolog>
     <metadata>
       <keywords>
         <indexterm>constraints<indexterm>examples<indexterm>applying multiple
-              constraints</indexterm></indexterm></indexterm>
+              <?oxy_delete author="chris" timestamp="20200627T212703-0400" content="constraints"?><?oxy_insert_start author="chris" timestamp="20200627T212703-0400"?>content
+              model specializations<?oxy_insert_end?></indexterm></indexterm></indexterm>
         <indexterm>examples<indexterm>constraints<indexterm>applying multiple
-              constraints</indexterm></indexterm></indexterm>
+              <?oxy_delete author="chris" timestamp="20200627T212702-0400" content="constraints"?><?oxy_insert_start author="chris" timestamp="20200627T212702-0400"?>content
+              model specializations<?oxy_insert_end?></indexterm></indexterm></indexterm>
+        <?oxy_insert_start author="chris" timestamp="20200627T212640-0400"?>
+        <indexterm>mix-ins<indexterm>examples<indexterm>applying multiple content model
+              specializations</indexterm></indexterm></indexterm>
+        <indexterm>examples<indexterm>mix-ins<indexterm>applying multiple content model
+              specializations</indexterm></indexterm></indexterm>
+        <?oxy_insert_end?>
       </keywords>
     </metadata>
   </prolog>
   <conbody>
     <example id="example" otherprops="examples">
-      <p>Here is a list of constraint modules and what they do:</p>
+      <p>Here is a list of
+        <?oxy_delete author="chris" timestamp="20200627T212720-0400" content="constraint"?><?oxy_insert_start author="chris" timestamp="20200627T212720-0400"?>content
+        model specialization<?oxy_insert_end?> modules and what they do:</p>
       <simpletable frame="all" relcolwidth="1.0* 1.0* 1.0*">
         <sthead>
           <stentry>File name</stentry>
-          <stentry>What it constrains</stentry>
+          <stentry>What it
+            <?oxy_delete author="chris" timestamp="20200627T213146-0400" content="constrains"?><?oxy_insert_start author="chris" timestamp="20200627T213146-0400"?>modifies<?oxy_insert_end?></stentry>
           <stentry>Details</stentry>
         </sthead>
+        <?oxy_insert_start author="chris" timestamp="20200627T212810-0400"?>
+        <strow>
+          <stentry><filepath>example-XrefSectionNumberMixin.mod</filepath></stentry>
+          <stentry><xmlelement>xref</xmlelement></stentry>
+          <stentry>Adds an optional <xmlelement>SectionNumber</xmlelement> element to
+              <xmlelement>xref</xmlelement>.</stentry>
+        </strow>
+        <strow>
+          <stentry><filepath>example-dlentryModeAttMixin.ent</filepath></stentry>
+          <stentry><xmlelement>dlentry</xmlelement></stentry>
+          <stentry>Adds <xmlatt>dlentry-mode</xmlatt> to the attributes of
+              <xmlelement>dlentry</xmlelement>.</stentry>
+        </strow>
+        <?oxy_insert_end?>
         <strow>
           <stentry><filepath>example-TopicConstraint.mod</filepath></stentry>
           <stentry><xmlelement>topic</xmlelement></stentry>
@@ -58,11 +86,14 @@
             (does not require a <filepath>.mod</filepath> file)</stentry>
         </strow>
       </simpletable>
-      <p>All of these constraints can be integrated into a single document-type shell for
-          <xmlelement>topic</xmlelement>, since they constrain distinct element types and domains.
-        The constraint for the highlighting domain must be integrated before the "DOMAIN ENTITIES"
-        section, but the order in which the other constraints are listed does not matter.</p>
+      <p>All of these
+        <?oxy_delete author="chris" timestamp="20200627T213352-0400" content="constraints"?><?oxy_insert_start author="chris" timestamp="20200627T213352-0400"?>modules<?oxy_insert_end?>
+        can be integrated into a single document-type shell for <xmlelement>topic</xmlelement>,
+        since they
+        <?oxy_delete author="chris" timestamp="20200627T213400-0400" content="constrain"?><?oxy_insert_start author="chris" timestamp="20200627T213400-0400"?>modify<?oxy_insert_end?>
+        distinct element types and
+        domains.<?oxy_delete author="chris" timestamp="20200627T213418-0400" content=" The constraint for the highlighting domain must be integrated before the &quot;DOMAIN ENTITIES&quot; section, but the order in which the other constraints are listed does not matter."?></p>
     </example>
   </conbody>
-  
 </concept>
+<?oxy_options track_changes="on"?>

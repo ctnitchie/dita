@@ -7,6 +7,6 @@
     <mapref href="configuration.ditamap"/>
     <mapref href="specialization.ditamap"/>
     <mapref href="generalization.ditamap"/>
-    <mapref href="constraints.ditamap"/>
+    <mapref href="content-model-specializations.ditamap"/>
   </topicref>
 </map>

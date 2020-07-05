@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept id="example__adding_specialized_elements_to_the_section_element" rev="2.0-Issue15">
+    <title>Example: Adding specialized elements to the <xmlelement>section</xmlelement>
+        element</title>
+    <shortdesc>In this scenario, an information architect wants to modify the content model for the
+            <xmlelement>section</xmlelement> element. He wants to add an optional
+            <xmlelement>section-shortdesc</xmlelement> element specialized from
+            <xmlelement>p</xmlelement>.</shortdesc>
+    <prolog>
+        <metadata>
+            <keywords>
+                <indexterm>mix-ins<indexterm>examples<indexterm>adding specialized
+                            elements</indexterm></indexterm></indexterm>
+                <indexterm>examples<indexterm>mix-ins<indexterm>adding specialized
+                            elements</indexterm></indexterm></indexterm>
+            </keywords>
+        </metadata>
+    </prolog>
+    <conbody>
+        <example>
+            <ol id="ol_gyk_bng_dmb">
+                <li>First, the content architect must create a domain specialization declaring the
+                        <xmlelement>section-shortdesc</xmlelement> element.<ol id="ol_plt_2ng_dmb">
+                        <li>He creates an entity declaration file for the domain,
+                                <filepath>sectionShortdescDomain.ent</filepath>.<codeblock>&lt;!ENTITY % section-shortdesc "section-shortdesc"></codeblock><note>This
+                                entity file does not declare a
+                                    <parameterentity>sectionShortdesc-d-p</parameterentity> entity,
+                                even though <xmlelement>section-shortdesc</xmlelement> will be
+                                specialized from <xmlelement>p</xmlelement>. The content architect
+                                only wants to allow this element within
+                                    <xmlelement>section</xmlelement>, not everywhere
+                                    <xmlelement>p</xmlelement> is allowed.</note></li>
+                        <li>He creates a DTD module defining the content model and attributes of the
+                                <xmlelement>section-shortdesc</xmlelement> element,
+                                <filepath>sectionShortdescDomain.mod</filepath>.<codeblock>&lt;!ENTITY % section-shortdesc.content "(%para.cnt;)*">
+&lt;!ENTITY % section-shortdesc.attributes "%univ-atts;">
+
+&lt;!ELEMENT section-shortdesc %section-shortdesc.content;>
+&lt;!ATTLIST section-shortdesc %section-shortdesc.attributes;>
+
+&lt;!ATTLIST section-shortdesc    class CDATA "+ topic/p sectionShortdesc-d/section-shortdesc"></codeblock></li>
+                        <li>Next, the content architect modifies the DTD shell to integrate the
+                            domain
+                            modules.<codeblock>&lt;!-- ============================================================= -->
+&lt;!--             DOMAIN ENTITY DECLARATIONS                        -->
+&lt;!-- ============================================================= -->
+
+&lt;!-- ... other domains ... -->
+
+&lt;!ENTITY % sectionShortdesc-d-dec
+  PUBLIC "-//ACME//ENTITIES DITA Section Short Description Domain//EN"
+         "sectionShortdescDomain.ent"
+>%sectionShortdesc-d-dec;
+
+&lt;!-- ... other DTD content ... -->
+
+&lt;!-- ============================================================= -->
+&lt;!--                    DOMAIN ELEMENT INTEGRATION                 -->
+&lt;!-- ============================================================= -->
+
+&lt;!-- ... other domains ... -->
+
+&lt;!ENTITY % sectionShortdesc-d-def
+  PUBLIC "-//ACME//ELEMENTS DITA Section Short Description Domain//EN"
+         "sectionShortdescDomain.mod"
+>%sectionShortdesc-d-def;
+</codeblock></li>
+                    </ol></li>
+                <li>At this point, the <xmlelement>section-shortdesc</xmlelement> element is
+                    declared as part of the vocabulary, but is not yet allowed in the content model
+                    of any other element. Next, the content architect must create a mix-in module
+                    adding <xmlelement>section-shortdesc</xmlelement> to the content model of
+                        <xmlelement>section</xmlelement>, called
+                        <filepath>acme-SectionMixin.mod</filepath>.<codeblock>&lt;!-- Declares the entities referenced in the modified content  -->
+&lt;!-- model.                                                       -->
+
+&lt;!ENTITY % dl "dl">
+&lt;!ENTITY % div "div">
+&lt;!ENTITY % fig "fig">
+&lt;!ENTITY % image "image">
+&lt;!ENTITY % lines "lines">
+&lt;!ENTITY % lq "lq">
+&lt;!ENTITY % note "note">
+&lt;!ENTITY % object "object">
+&lt;!ENTITY % ol "ol">
+&lt;!ENTITY % p "p">
+&lt;!ENTITY % pre "pre">
+&lt;!ENTITY % simpletable "simpletable">
+&lt;!ENTITY % sl "sl">
+&lt;!ENTITY % table "table">
+&lt;!ENTITY % ul "ul">
+&lt;!ENTITY % cite "cite">
+&lt;!ENTITY % include "include">
+&lt;!ENTITY % keyword "keyword">
+&lt;!ENTITY % ph "ph">
+&lt;!ENTITY % q "q">
+&lt;!ENTITY % term "term">
+&lt;!ENTITY % text "text">
+&lt;!ENTITY % tm "tm">
+&lt;!ENTITY % xref "xref">
+&lt;!ENTITY % state "state">
+&lt;!ENTITY % data "data">
+&lt;!ENTITY % data-about "data-about">
+&lt;!ENTITY % foreign "foreign">
+&lt;!ENTITY % unknown "unknown">
+&lt;!ENTITY % sectiondiv "sectiondiv">
+&lt;!ENTITY % title "title">
+&lt;!ENTITY % draft-comment "draft-comment">
+&lt;!ENTITY % fn "fn">
+&lt;!ENTITY % indexterm "indexterm">
+&lt;!ENTITY % required-cleanup "required-cleanup">
+
+&lt;!-- Defines the modified content model for &lt;section>.       -->
+
+&lt;!ENTITY % section.content
+              "(#PCDATA |
+               %dl; |
+               %div; |
+               %fig; |
+               %image; |
+               %lines; |
+               %lq; |
+               %note; |
+               %object; |
+               %ol; |
+               %p; |
+               %pre; |
+               %simpletable; |
+               %sl; |
+               %table; |
+               %ul; |
+               %cite; |
+               %include; |
+               %keyword; |
+               %ph; |
+               %q; |
+               %term; |
+               %text; |
+               %tm; |
+               %xref; |
+               %state; |
+               %data; |
+               %data-about; |
+               %foreign; |
+               %unknown; |
+               %sectiondiv; |
+               %title; |
+               %draft-comment; |
+               %fn; |
+               %indexterm; |
+               %required-cleanup; <b>|
+               %section-shortdesc;</b>)*"
+>
+</codeblock></li>
+                <li>Finally, the content architect must integrate this mix-in module into the DTD
+                    shell.<codeblock>&lt;!-- ============================================================= -->
+&lt;!--                    CONTENT CONSTRAINT INTEGRATION             -->
+&lt;!-- ============================================================= -->
+
+&lt;!ENTITY % acmeSection-def
+  PUBLIC "-//ACME//ELEMENTS DITA Section Mix-in//EN"
+         "acme-SectionMixin.mod"
+>%acmeSection-def;
+</codeblock></li>
+                <li>After updating the <filepath>catalog.xml</filepath> file to include the new
+                    domain modules and the mix-in module, the work is done.</li>
+            </ol>
+        </example>
+    </conbody>
+</concept>

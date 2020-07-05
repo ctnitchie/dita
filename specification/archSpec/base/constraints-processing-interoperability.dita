@@ -1,39 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
-<concept xml:lang="en-us" id="concept_nqd_ys5_kq">
- <title>Constraints, processing, and interoperability</title>
- <shortdesc>Because constraints can make optional elements required, documents that use the same
-  vocabulary modules might have incompatible constraints. Thus the use of constraints can affect the
-  ability for content from one topic or map to be used in another topic or map.</shortdesc>
+<?oxy_attributes rev="&lt;change type=&quot;inserted&quot; author=&quot;chris&quot; timestamp=&quot;20200627T205445-0400&quot; /&gt;"?>
+<concept xml:lang="en-us" id="concept_nqd_ys5_kq" rev="2.0-Issue15">
+ <title><?oxy_delete author="chris" timestamp="20200627T182658-0400" content="Constraints"?><?oxy_insert_start author="chris" timestamp="20200627T182658-0400"?>Content
+  model specializations<?oxy_insert_end?>, processing, and interoperability</title>
+ <shortdesc>Because
+  <?oxy_delete author="chris" timestamp="20200627T182803-0400" content="constraints"?><?oxy_insert_start author="chris" timestamp="20200627T182803-0400"?>content
+  model specializations<?oxy_insert_end?> can
+  <?oxy_insert_start author="chris" timestamp="20200627T182823-0400"?>add elements to content models
+  and <?oxy_insert_end?>make optional elements required, documents that use the same vocabulary
+  modules might have incompatible
+  <?oxy_delete author="chris" timestamp="20200627T182835-0400" content="constraints"?><?oxy_insert_start author="chris" timestamp="20200627T182835-0400"?>content
+  model specializations<?oxy_insert_end?>. Thus the use of
+  <?oxy_delete author="chris" timestamp="20200627T182846-0400" content="constraints"?><?oxy_insert_start author="chris" timestamp="20200627T182846-0400"?>content
+  model specializations<?oxy_insert_end?> can affect the ability for content from one topic or map
+  to be used in another topic or map.</shortdesc>
  <prolog>
   <metadata>
    <keywords>
-    <indexterm>constraints<indexterm>processing and interoperability</indexterm></indexterm>
-    <indexterm>interoperability<indexterm>constraints</indexterm></indexterm>
+    <indexterm><?oxy_delete author="chris" timestamp="20200627T182706-0400" content="constraints"?><?oxy_insert_start author="chris" timestamp="20200627T182706-0400"?>content
+     model specializations<?oxy_insert_end?><indexterm>processing and
+     interoperability</indexterm></indexterm>
+    <indexterm>interoperability<indexterm><?oxy_delete author="chris" timestamp="20200627T182711-0400" content="constraints"?><?oxy_insert_start author="chris" timestamp="20200627T182711-0400"?>content
+      model specializations<?oxy_insert_end?></indexterm></indexterm>
    </keywords>
   </metadata>
  </prolog>
  <conbody>
-  <p>A constraint does not change basic or inherited element semantics. The constrained instances
-   remain valid instances of the unconstrained element type, and the element type retains the same
-   semantics and <xmlatt>class</xmlatt> attribute declaration. Thus, a constraint never creates a
-   new case to which content processing might need to react. </p>
+  <p>A
+   <?oxy_delete author="chris" timestamp="20200627T182902-0400" content="constraint"?><?oxy_insert_start author="chris" timestamp="20200627T182902-0400"?>content
+   model specialization<?oxy_insert_end?> does not change basic or inherited element semantics. The
+   <?oxy_delete author="chris" timestamp="20200627T182927-0400" content="constrained"?><?oxy_insert_start author="chris" timestamp="20200627T182927-0400"?>modified<?oxy_insert_end?>
+   instances remain valid instances of the
+   <?oxy_delete author="chris" timestamp="20200627T182934-0400" content="unconstrained"?><?oxy_insert_start author="chris" timestamp="20200627T182934-0400"?>unmodified<?oxy_insert_end?>
+   element type, and the element type retains the same semantics and <xmlatt>class</xmlatt>
+   attribute declaration. Thus, a
+   <?oxy_delete author="chris" timestamp="20200627T182948-0400" content="constraint"?><?oxy_insert_start author="chris" timestamp="20200627T182948-0400"?>content
+   model specialization<?oxy_insert_end?> never creates a new case to which content processing might
+   need to react. </p>
   <p otherprops="examples">For example, a document type constrained to require the
     <xmlelement>shortdesc</xmlelement> element allows a subset of the possible instances of the
-   unconstrained document type with an optional <xmlelement>shortdesc</xmlelement> element. Thus,
-   the content processing for topic still works when <xmlelement>topic</xmlelement> is constrained
-   to require a short description.</p>
-  <p>A constrained document type allows only a subset of the possible instances of the unconstrained
-   document type. Thus, for a processor to determine whether a document instance is compatible with
-   another document type, the document instance <term outputclass="RFC-2119" 
-    >MUST</term> declare any constraints on the document type. </p>
-  <p otherprops="examples">For example, an unconstrained task is compatible with an unconstrained
-   topic, because the <xmlelement>task</xmlelement> element can be generalized to
+   <?oxy_delete author="chris" timestamp="20200627T183033-0400" content="unconstrained"?><?oxy_insert_start author="chris" timestamp="20200627T183033-0400"?>unmodified<?oxy_insert_end?>
+   document type with an optional <xmlelement>shortdesc</xmlelement> element. Thus, the content
+   processing for topic still works when <xmlelement>topic</xmlelement> is constrained to require a
+   short description.</p>
+  <?oxy_insert_start author="chris" timestamp="20200627T183157-0400" type="surround"?>
+  <draft-comment author="chris"
+   ><?oxy_insert_end?><?oxy_insert_start author="chris" timestamp="20200627T183201-0400"?>Removing
+   these paragraphs, since it imposes a requirement on <xmlatt>domains</xmlatt>, which no longer
+    exists.<?oxy_insert_end?><p>A constrained document type allows only a subset of the possible
+    instances of the unconstrained document type. Thus, for a processor to determine whether a
+    document instance is compatible with another document type, the document instance <term
+     outputclass="RFC-2119">MUST</term> declare any constraints on the document type.
+   </p></draft-comment>
+  <p otherprops="examples">For
+   <?oxy_insert_start author="chris" timestamp="20200627T183311-0400"?>another
+   <?oxy_insert_end?>example, an unconstrained task is compatible with an unconstrained topic,
+   because the <xmlelement>task</xmlelement> element can be generalized to
     <xmlelement>topic</xmlelement>. However, if the topic is constrained to require the
     <xmlelement>shortdesc</xmlelement> element, a document type with an unconstrained task is not
    compatible with the constrained document type, because some instances of the task might not have
    a <xmlelement>shortdesc</xmlelement> element. However, if the task document type also has been
    constrained to require the <xmlelement>shortdesc</xmlelement> element, it is compatible with the
-   constrained topic document type. </p>
+   constrained topic document
+   type.<?oxy_delete author="chris" timestamp="20200627T183404-0400" content=" "?></p>
  </conbody>
 </concept>
+<?oxy_options track_changes="on"?>

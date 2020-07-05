@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
+<concept xml:lang="en-us" id="concept_sv4_2gm_vp">
+ <title><?oxy_delete author="chris" timestamp="20200627T153225-0400" content="Constraints"?><?oxy_insert_start author="chris" timestamp="20200627T153225-0400"?>Content
+      model specializations<?oxy_insert_end?></title>
+ <shortdesc><?oxy_attributes conkeyref="&lt;change type=&quot;modified&quot; oldValue=&quot;reuse-general/contraints-shortdesc&quot; author=&quot;chris&quot; timestamp=&quot;20200627T154055-0400&quot; /&gt;"?><ph
+         conkeyref="reuse-general/content-model-specializations-shortdesc"
+         ><?oxy_insert_end?><?oxy_delete author="chris" timestamp="20200627T154055-0400" content=""?></ph></shortdesc>
+</concept>
+<?oxy_options track_changes="on"?>

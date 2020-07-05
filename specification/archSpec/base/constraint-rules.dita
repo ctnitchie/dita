@@ -1,28 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
 <concept xml:lang="en-us" id="concept_ycp_3jm_vp">
- <title>Constraint rules</title>
+ <title><?oxy_delete author="chris" timestamp="20200627T154710-0400" content="Constraint"?><?oxy_insert_start author="chris" timestamp="20200627T154710-0400"?>Content
+  model specialization<?oxy_insert_end?> rules</title>
  <shortdesc>There are certain rules that apply to the design and implementation of
-  constraints.</shortdesc>
+  <?oxy_delete author="chris" timestamp="20200627T154716-0400" content="constraints"?><?oxy_insert_start author="chris" timestamp="20200627T154716-0400"?>content
+  model specializations<?oxy_insert_end?>.</shortdesc>
  <prolog>
   <metadata>
    <keywords>
-    <indexterm>constraints<indexterm>design and implementation rules</indexterm></indexterm>
+    <indexterm><?oxy_delete author="chris" timestamp="20200627T154830-0400" content="constraints"?><?oxy_insert_start author="chris" timestamp="20200627T154830-0400"?>content
+     model specializations<?oxy_insert_end?><indexterm>design and implementation
+     rules</indexterm></indexterm>
    </keywords>
   </metadata>
  </prolog>
  <conbody>
   <dl>
-   <dlentry>
+   <?oxy_attributes rev="&lt;change type=&quot;inserted&quot; author=&quot;chris&quot; timestamp=&quot;20200627T205424-0400&quot; /&gt;"?>
+   <dlentry rev="2.0-Issue15">
     <dt>Content model</dt>
     <dd>
-     <p>The content model for a constrained element must be at least as restrictive as the
-      unconstrained content model for the element.
-      <!--[Eberlein: 12 January 2015]: For example, a constraint for <xmlelement>note</xmlelement> might restrict the values for <xmlatt>type</xmlatt> but leave the content model unchanged.--></p>
-     <p>The content model and attributes of an element can be constrained by only one constraint
-      module. If two constraint modules exist that constrain the content model or attributes for a
-      specific element, those two modules must be replaced with a new constraint module that
-      reflects the aggregation of the two original constraint modules.</p>
+     <?oxy_delete author="chris" timestamp="20200627T154849-0400" content="&lt;p&gt;The content model for a constrained element must be at least as restrictive as the unconstrained content model for the element. &lt;!--[Eberlein: 12 January 2015]: For example, a constraint for &lt;xmlelement&gt;note&lt;/xmlelement&gt; might restrict the values for &lt;xmlatt&gt;type&lt;/xmlatt&gt; but leave the content model unchanged.--&gt;&lt;/p&gt;&lt;p&gt;The content model and attributes of an element can be constrained by only one constraint module. If two constraint modules exist that constrain the content model or attributes for a specific element, those two modules must be replaced with a new constraint module that reflects the aggregation of the two original constraint modules.&lt;/p&gt;"?>
+     <?oxy_insert_start author="chris" timestamp="20200627T154905-0400"?>
+     <p>The content model of an element after a content model specialization is applied must remain
+      compatible with the unmodified content model in its generalized form. This rule carries a
+      number of important implications.</p>
+     <ul id="ul_on3_tmv_dmb">
+      <li>The content model for a constrained element must be at least as restrictive as the
+       unconstrained content model for the element. Only optional elements may be removed, and
+       required orderings must be maintained.</li>
+      <li>Elements added to content models by mix-ins must be specializations of existing elements
+       from the content model, and must be allowed only where their specialization base is allowed.
+       For example, when creating a mix-in adding a specialization of <xmlelement>data</xmlelement>
+       to <xmlelement>ol</xmlelement>, the element must only be allowed before any
+        <xmlelement>li</xmlelement> elements, as that is the only place
+        <xmlelement>data</xmlelement> is allowed.</li>
+      <li>Content models including mix-ins including elements whose specialization base is allowed
+       only once must either allow a choice between the unspecialized element and the specialized
+       element, or require the use of the specialized element instead of the base element. For
+       example, consider a mix-in adding a <xmlelement>nomarkuptitle</xmlelement> element
+       specialized from <xmlelement>title</xmlelement> to the <xmlelement>topic</xmlelement>
+       element. The modified content model must either remove <xmlelement>title</xmlelement> or
+       provide an "exactly-once" choice between <xmlelement>title</xmlelement> and
+        <xmlelement>nomarkuptitle</xmlelement>. It must not allow both
+        <xmlelement>title</xmlelement> and <xmlelement>nomarkuptitle</xmlelement> to exist inside
+       the same <xmlelement>topic</xmlelement> element.</li>
+     </ul>
+     <p>Mix-in modules must not include the grammar definitions of the elements being added. Such
+      elements must be defined in separate specialization modules and referenced from the mix-in.
+      Attributes may either be declared in the same module or separately.</p>
+     <p>The content model of an element can be modified by only one content model specialization
+      module. If several content model specialization modules exist that modify the content model of
+      a specific element, those modules must be replaced with a new module that reflects the
+      aggregation of the original content model specialization modules.</p>
+     <p>The attributes of an element may be contributed to from any number of mix-in modules.
+      However, only one constraint module may be applied to the attributes of a given element type.
+      If multiple constraints need to be applied to a given element's attributes, they must be
+      replaced by a new constraint that aggregates them together.</p>
+     <p>A constraint cannot remove attributes contributed by mix-ins. One solution to this is for
+      attribute mix-ins to be authored in a granular manner with separate modules contributing a
+      single attribute to a single element. This allows the authors of document type shells to
+      control the applicability of various mix-in attributes. This level of granularity is not
+      required, but should be considered a best practice for attribute mix-ins whose applicability
+      is not known by the mix-in author.</p>
+     <?oxy_insert_end?>
     </dd>
    </dlentry>
    <dlentry>
@@ -32,9 +74,9 @@
       be omitted from the domain extension group or parameter entity. In such a case, there is no
       separate constraint declaration, because the content model is configured directly in the
       document-type shell.</p>
-     <p >A domain module can be constrained by only one constraint module. This
-      means that all restrictions for the extension elements that are defined in the domain must be
-      contained within that one constraint module.</p>
+     <p>A domain module can be constrained by only one constraint module. This means that all
+      restrictions for the extension elements that are defined in the domain must be contained
+      within that one constraint module.</p>
     </dd>
    </dlentry>
    <dlentry>
@@ -53,3 +95,4 @@
   </dl>
  </conbody>
 </concept>
+<?oxy_options track_changes="on"?>
