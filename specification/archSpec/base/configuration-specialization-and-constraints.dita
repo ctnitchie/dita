@@ -4,7 +4,7 @@
   <title>Configuration, specialization, generalization,
     <?oxy_delete author="chris" timestamp="20200627T134055-0400" content="and "?>constraints<?oxy_insert_start author="chris" timestamp="20200627T134100-0400"?>,
     and
-    mixins<?oxy_insert_end?><?oxy_delete author="chris" timestamp="20200627T134059-0400" content=" "?></title>
+    mix-ins<?oxy_insert_end?><?oxy_delete author="chris" timestamp="20200627T134059-0400" content=" "?></title>
   <shortdesc>The extension facilities of DITA allow existing
     vocabulary<?oxy_insert_start author="chris" timestamp="20200627T134135-0400"?>,<?oxy_insert_end?><?oxy_delete author="chris" timestamp="20200627T134134-0400" content=" and"?>
     constraint<?oxy_insert_start author="chris" timestamp="20200627T134138-0400"?>, and
@@ -12,4 +12,5 @@
     Vocabulary modules also can be specialized to meet requirements that are not satisfied by
     existing markup. </shortdesc>
 </concept>
+
 <?oxy_options track_changes="on"?>

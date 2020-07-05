@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE map PUBLIC "-//OASIS//DTD DITA Map//EN" "map.dtd">
 <map xml:lang="en-us">
-  <title>Configuration, specialization,  generalization, and constraints</title>
+  <title>Configuration, specialization, generalization,
+    <?oxy_delete author="chris" timestamp="20200705T193819-0400" content="and"?>
+    constraints<?oxy_insert_start author="chris" timestamp="20200705T193821-0400"?>, and
+    mix-ins<?oxy_insert_end?></title>
   <topicref href="configuration-specialization-and-constraints.dita">
     <topicref href="ditaspecialization.dita"/>
     <mapref href="configuration.ditamap"/>
@@ -10,3 +13,4 @@
     <mapref href="content-model-specializations.ditamap"/>
   </topicref>
 </map>
+<?oxy_options track_changes="on"?>
