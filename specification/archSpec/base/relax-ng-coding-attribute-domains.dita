@@ -13,21 +13,29 @@
       element is used to help enable generation of DTD and XSD grammar files. An XML comment or
         <xmlelement>a:documentation</xmlelement> element can also be used.</p>
     <p conkeyref="reuse-general/rng-attribute-domain-name"/>
-   <p>An attribute domain consists of one file, which has three sections:</p>
+   <p>An attribute domain consists of one file, which has
+      <?oxy_delete author="chris" timestamp="20200705T170047-0400" content="three"?><?oxy_insert_start author="chris" timestamp="20200705T170047-0400"?>several<?oxy_insert_end?>
+      sections:</p>
     <dl>
       <dlentry>
         <dt>Specializations attribute contribution</dt>
         <dd>
-          <p>The <xmlatt>specializations</xmlatt> contribution must be documented in the module. The value
-            is constructed according to the rules found in <xref
+          <p>The <xmlatt>specializations</xmlatt> contribution must be documented in the module. The
+            value is constructed according to the rules found in <xref
               href="specialization-specializations-attribute.dita"/>.</p>
         </dd>
       </dlentry>
       <dlentry>
-        <dt>Attribute extension pattern</dt>
-        <dd>The attribute extension pattern extends either the <xmlatt>props</xmlatt> or
-            <xmlatt>base</xmlatt> attribute set pattern to include the attribute
-            specialization.<p>For specializations of <xmlatt>props</xmlatt> the pattern is named
+        <dt><?oxy_insert_start author="chris" timestamp="20200705T170141-0400"?>Global
+          <?oxy_insert_end?><?oxy_delete author="chris" timestamp="20200705T170143-0400" content="A"?><?oxy_insert_start author="chris" timestamp="20200705T170143-0400"?>a<?oxy_insert_end?>ttribute
+          extension pattern<?oxy_insert_start author="chris" timestamp="20200705T164852-0400"?>
+          (global specializations)<?oxy_insert_end?></dt>
+        <dd>The <?oxy_insert_start author="chris" timestamp="20200705T170221-0400"?>global
+          <?oxy_insert_end?>attribute extension pattern extends either the <xmlatt>props</xmlatt> or
+            <xmlatt>base</xmlatt>
+          <?oxy_insert_start author="chris" timestamp="20200705T170225-0400"?>global
+          <?oxy_insert_end?>attribute set pattern to include the attribute specialization.<p>For
+            specializations of <xmlatt>props</xmlatt> the pattern is named
               <codeph>props-attribute-extensions</codeph>. The pattern specifies a
               <xmlatt>combine</xmlatt> value of "interleave", and the content of the pattern is a
             reference to the specialized attribute declaration pattern. For
@@ -40,14 +48,43 @@
             reference to the specialized attribute declaration pattern. For
             example:<codeblock>&lt;define name="base-attribute-extensions" combine="interleave">
     &lt;ref name="myBaseSpecializationAtt-d-attribute"/>
-&lt;/define></codeblock></p></dd>
+&lt;/define></codeblock></p><?oxy_insert_start author="chris" timestamp="20200705T164858-0400"?><p>Attribute
+            specializations meant for use with mix-in modules, and not intended for global
+            applicability, omit this declaration.</p><?oxy_insert_end?></dd>
       </dlentry>
+      <?oxy_insert_start author="chris" timestamp="20200705T170101-0400"?>
+      <dlentry>
+        <dt>Specific attribute extension patterns (mix-in specializations, optional)</dt>
+        <dd>For attributes meant for use in mix-ins on specific elements, the module <keyword
+            outputclass="RFC-2119">MAY</keyword> specify the attribute pattern(s) to which the
+          attribute should be applied. The module may also leave specific element integrations to
+          separate content model specialization modules.<p>Each element type defines a pattern for
+            its attributes named <codeph><i>elementName</i>.attlist</codeph>. Mix-in attributes can
+            be integrated into these patterns using <codeph>combine="interleave"</codeph>.</p><p>For
+            example, an attribute domain module that defines a <xmlatt>cellPurpose</xmlatt>
+            attribute for use on <xmlelement>row</xmlelement>, <xmlelement>colspec</xmlelement>, and
+              <xmlelement>entry</xmlelement>, could define interleaving patterns for each of those
+            elements' attribute
+            lists.<codeblock>&lt;pattern mame="row.attlist" combine="interleave">
+  &lt;ref name="cellPurpose-d-attribute-mixin"/>
+&lt;/pattern>
+&lt;pattern name="colspec.attlist" combine="interleave">
+  &lt;ref name="cellPurpose-d-attribute-mixin"/>
+&lt;/pattern>
+&lt;pattern name="entry.attlist" combine="interleave">
+  &lt;ref name="cellPurpose-d-attribute-mixin"/>
+&lt;/pattern></codeblock></p></dd>
+      </dlentry>
+      <?oxy_insert_end?>
       <dlentry>
         <dt>Attribute declaration pattern</dt>
-        <dd>The specialized attribute is declared in a pattern named <codeph 
-><varname>domainName</varname>-d-attribute</codeph>. The attribute must be defined as optional. For
-example, the <xmlatt>deliveryTarget</xmlatt> specialization of <xmlatt>props</xmlatt> is defined as
-follows:<codeblock>&lt;define name="deliveryTargetAtt-d-attribute">
+        <dd>The specialized attribute is declared in a pattern named
+              <codeph><varname>domainName</varname>-d-attribute</codeph>.<?oxy_insert_start author="chris" timestamp="20200705T164945-0400"?>
+          If the attribute is meant for use with mix-ins, it should also carry a
+            <codeph>-mixin</codeph> suffix.<?oxy_insert_end?> The attribute must be defined as
+          optional. For example, the <xmlatt>deliveryTarget</xmlatt> specialization of
+            <xmlatt>props</xmlatt> is defined as
+          follows:<codeblock>&lt;define name="deliveryTargetAtt-d-attribute">
   &lt;optional>
     &lt;attribute name="deliveryTarget"/>
   &lt;/optional>    
@@ -56,3 +93,4 @@ follows:<codeblock>&lt;define name="deliveryTargetAtt-d-attribute">
     </dl>
  </conbody>
 </concept>
+<?oxy_options track_changes="on"?>

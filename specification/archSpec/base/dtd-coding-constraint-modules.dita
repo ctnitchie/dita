@@ -1,62 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN" "concept.dtd">
 <concept id="constraintsDomainDesignPattern-dtd" xml:lang="en-us" >
-  <title>DTD: Coding requirements for constraint modules</title>
-  <shortdesc>A structural constraint module defines the constraints for a map or topic element type.
-    A domain constraint module defines the constraints for an element or attribute
-    domain.</shortdesc>
+  <title>DTD: Coding requirements for
+    <?oxy_delete author="chris" timestamp="20200705T183522-0400" content="constraint"?><?oxy_insert_start author="chris" timestamp="20200705T183522-0400"?>content
+    model specialization<?oxy_insert_end?> modules</title>
+  <shortdesc>A
+    <?oxy_delete author="chris" timestamp="20200705T183539-0400" content="structural "?><?oxy_delete author="chris" timestamp="20200705T183528-0400" content="constraint"?><?oxy_insert_start author="chris" timestamp="20200705T183528-0400"?>content
+    model specialization<?oxy_insert_end?> module defines the
+    constraints<?oxy_insert_start author="chris" timestamp="20200705T183547-0400"?> and
+    mix-ins<?oxy_insert_end?> for a map or topic element
+    type.<?oxy_delete author="chris" timestamp="20200705T183624-0400" content=" A domain constraint module defines the constraints for an element or attribute domain."?></shortdesc>
   <prolog>
     <metadata>
       <keywords>
         <indexterm>coding
-          requirements<indexterm>DTD<indexterm>constraints</indexterm></indexterm></indexterm>
-        <indexterm>constraints<indexterm>DTD<indexterm>coding
+              requirements<indexterm>DTD<indexterm><?oxy_delete author="chris" timestamp="20200705T183634-0400" content="constraints"?><?oxy_insert_start author="chris" timestamp="20200705T183634-0400"?>content
+              model specializations<?oxy_insert_end?></indexterm></indexterm></indexterm>
+        <indexterm><?oxy_delete author="chris" timestamp="20200705T183647-0400" content="constraints"?><?oxy_insert_start author="chris" timestamp="20200705T183647-0400"?>content
+          model specializations<?oxy_insert_end?><indexterm>DTD<indexterm>coding
               requirements</indexterm><indexterm>integrating into document type
             shells</indexterm></indexterm></indexterm>
-        <indexterm>domain constraint modules<indexterm>DTD<indexterm>coding
-            requirements</indexterm></indexterm></indexterm>
-        <indexterm>file names<indexterm>DTD<indexterm>domain constraint
-              modules</indexterm><indexterm>structural constraint
-          modules</indexterm></indexterm></indexterm>
-        <indexterm>structural constraint modules<indexterm>DTD<indexterm>coding
+        <indexterm><?oxy_delete author="chris" timestamp="20200705T183702-0400" content="domain constraint modules"?><?oxy_insert_start author="chris" timestamp="20200705T183702-0400"?>content
+          model specializations<?oxy_insert_end?><indexterm>DTD<indexterm>coding
               requirements</indexterm></indexterm></indexterm>
+        <indexterm>file
+              names<indexterm>DTD<indexterm><?oxy_delete author="chris" timestamp="20200705T183708-0400" content="domain constraint modules"?><?oxy_insert_start author="chris" timestamp="20200705T183708-0400"?>content
+              model
+            specializations<?oxy_insert_end?></indexterm><?oxy_delete author="chris" timestamp="20200705T183717-0400" content="&lt;indexterm&gt;structural constraint modules&lt;/indexterm&gt;"?></indexterm></indexterm>
+        <?oxy_delete author="chris" timestamp="20200705T183730-0400" content="&lt;indexterm&gt;structural constraint modules&lt;indexterm&gt;DTD&lt;indexterm&gt;coding requirements&lt;/indexterm&gt;&lt;/indexterm&gt;&lt;/indexterm&gt;"?>
       </keywords>
     </metadata>
   </prolog>
   <conbody>
     <section id="structural">
-      <title>Structural constraint modules</title>
-      <p>Structural constraint modules have the following requirements:</p>
+      <title><?oxy_delete author="chris" timestamp="20200705T183742-0400" content="Structural constraint"?><?oxy_insert_start author="chris" timestamp="20200705T183742-0400"?>Content
+        model specialization<?oxy_insert_end?> modules</title>
+      <p><?oxy_delete author="chris" timestamp="20200705T183749-0400" content="Structural constraint"?><?oxy_insert_start author="chris" timestamp="20200705T183749-0400"?>Content
+        model specialization<?oxy_insert_end?> modules have the following requirements:</p>
       <dl>
-        <dlentry >
+        <dlentry>
           <dt>The <codeph><varname>tagname</varname>.attributes</codeph> parameter entity</dt>
           <dd>
-            <p>When the attribute set for an element is constrained, there <ph 
-                >must</ph> be a declaration of the
+            <p>When the attribute set for an element is
+              <?oxy_delete author="chris" timestamp="20200705T183806-0400" content="constrained"?><?oxy_insert_start author="chris" timestamp="20200705T183806-0400"?>modified<?oxy_insert_end?>,
+              there <ph>must</ph> be a declaration of the
                 <codeph><varname>tagname</varname>.attributes</codeph> parameter entity that defines
-              the constrained attributes.</p>
-            <p otherprops="examples">For example, the following parameter
-              entity defines a constrained set of attributes for the <xmlelement>note</xmlelement>
-              element that removes most of the values defined for <xmlatt>type</xmlatt>, and also
-              removes <xmlatt>spectitle</xmlatt> and <xmlatt>othertype</xmlatt>:</p>
+              the
+              <?oxy_delete author="chris" timestamp="20200705T183817-0400" content="constrained"?><?oxy_insert_start author="chris" timestamp="20200705T183817-0400"?>modified<?oxy_insert_end?>
+              attributes.</p>
+            <p otherprops="examples">For example, the following parameter entity defines a
+              constrained set of attributes for the <xmlelement>note</xmlelement> element that
+              removes most of the values defined for <xmlatt>type</xmlatt>, and also removes
+                <xmlatt>spectitle</xmlatt> and
+              <xmlatt>othertype</xmlatt><?oxy_insert_start author="chris" timestamp="20200705T183845-0400"?>,
+              and adds the attribute from a <codeph>shading</codeph> mix-in attribute
+              domain<?oxy_insert_end?>:</p>
             <codeblock>&lt;!ENTITY % note.attributes  
-       "type  (attention | caution | note ) #IMPLIED
+       "type  (attention | caution | note ) #IMPLIED<?oxy_insert_start author="chris" timestamp="20200705T184002-0400"?>
+        %shading-d-attribute-mixin;<?oxy_insert_end?>
         %univ-atts;"&gt;</codeblock>
           </dd>
         </dlentry>
         <dlentry>
           <dt>The <codeph><varname>tagname</varname>.content</codeph> parameter entity</dt>
           <dd>
-            <p><ph >When the content model for an element is constrained,</ph>
-              there <ph >must</ph> be a declaration of the
-                  <codeph><varname>tagname</varname>.content</codeph> parameter entity that defines
-              the constrained content model.</p>
-            <p otherprops="examples">For example, the following parameter entity defines a more
-              restricted content model for <xmlelement>topic</xmlelement>, in which the
+            <p><ph>When the content model for an element is
+                <?oxy_delete author="chris" timestamp="20200705T184115-0400" content="constrained"?><?oxy_insert_start author="chris" timestamp="20200705T184115-0400"?>modified<?oxy_insert_end?>,</ph>
+              there <ph>must</ph> be a declaration of the
+                <codeph><varname>tagname</varname>.content</codeph> parameter entity that defines
+              the
+              <?oxy_delete author="chris" timestamp="20200705T184129-0400" content="constrained"?><?oxy_insert_start author="chris" timestamp="20200705T184129-0400"?>modified<?oxy_insert_end?>
+              content model.</p>
+            <p otherprops="examples">For example, the following parameter entity defines a
+              <?oxy_delete author="chris" timestamp="20200705T184349-0400" content="more restricted"?><?oxy_insert_start author="chris" timestamp="20200705T184349-0400"?>modified<?oxy_insert_end?>
+              content model for <xmlelement>topic</xmlelement>, in which the
                 <xmlelement>shortdesc</xmlelement> element is
-              required.<codeblock>&lt;!ENTITY % topic.content 
+              required<?oxy_insert_start author="chris" timestamp="20200705T184411-0400"?> and a
+                <xmlelement>nomarkuptitle</xmlelement> mix-in replaces
+                <xmlelement>title</xmlelement><?oxy_insert_end?>.<codeblock>&lt;!ENTITY % topic.content 
 
-  "((%title;), 
+  "((%<?oxy_delete author="chris" timestamp="20200705T184618-0400" content="title"?><?oxy_insert_start author="chris" timestamp="20200705T184618-0400"?>nomarkup-d-title-mixin<?oxy_insert_end?>;), 
     (%titlealts;)?, 
     (%shortdesc;), 
     (%prolog;)?, 
@@ -74,12 +97,11 @@
         <dlentry>
           <dt>Parameter entity</dt>
           <dd>
-            <p><ph >When the set of extension elements are restricted, there
-                must</ph> be a parameter entity that defines the constrained content model.</p>
-            <p otherprops="examples" >For example, the following
-              parameter entity restricts the highlighting domain to <xmlelement>b</xmlelement> and
-                <xmlelement>i</xmlelement>:</p>
-            <codeblock >
+            <p><ph>When the set of extension elements are restricted, there must</ph> be a parameter
+              entity that defines the constrained content model.</p>
+            <p otherprops="examples">For example, the following parameter entity restricts the
+              highlighting domain to <xmlelement>b</xmlelement> and <xmlelement>i</xmlelement>:</p>
+            <codeblock>
 &lt;!ENTITY % HighlightingDomain-c-ph     "b | i"  ></codeblock>
           </dd>
         </dlentry>
@@ -105,3 +127,4 @@
   </conbody>
 </concept>
 
+<?oxy_options track_changes="on"?>

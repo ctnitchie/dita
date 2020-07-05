@@ -4,7 +4,8 @@
  <title>RELAX NG: Coding requirements for element domain modules</title>
  <shortdesc>Vocabulary modules that define element domains must define an extension pattern for each
     element that is extended by the domain. These patterns are used when including the domain module
-    in a document-type shell.</shortdesc>
+    in a document-type shell<?oxy_insert_start author="chris" timestamp="20200705T163203-0400"?> or
+    mix-in<?oxy_insert_end?>.</shortdesc>
  <conbody>
     <p>For each element type that is extended by the element domain module, the module must define a
       domain extension pattern. The pattern consists of a choice group of references to element-type
@@ -12,10 +13,16 @@
     <p>The name of the pattern uses the following format, where <varname>shortName</varname> is the
       short name for the domain, and <varname>elementName</varname> is the name of the element that
       is
-      extended:<codeblock><codeph><varname>shortName</varname>-d-</codeph><varname>elementName</varname></codeblock></p>
-    <p otherprops="examples">For example, the following pattern extends the
-        <xmlelement>ph</xmlelement> element type by adding the specializations of
-        <xmlelement>ph</xmlelement> that are defined in the highlighting
+      extended:<codeblock><codeph><varname>shortName</varname>-d-</codeph><varname>elementName</varname><?oxy_insert_start author="chris" timestamp="20200705T163400-0400"?>(-mixin)<?oxy_insert_end?></codeblock></p>
+    <?oxy_insert_start author="chris" timestamp="20200705T163410-0400"?>
+    <p>The <codeph>-mixin</codeph> suffix should be used for domains meant to be used in combination
+      with mix-in modules. Element domains that are intended for global applicability should omit
+      the <codeph>-mixin</codeph> suffix.</p>
+    <?oxy_insert_end?>
+    <p otherprops="examples">For example, the following pattern
+      <?oxy_insert_start author="chris" timestamp="20200705T163633-0400"?>globally
+      <?oxy_insert_end?>extends the <xmlelement>ph</xmlelement> element type by adding the
+      specializations of <xmlelement>ph</xmlelement> that are defined in the highlighting
       domain:<codeblock>  &lt;define name="hi-d-ph">
     &lt;choice>
       &lt;ref name="b.element"/>
@@ -27,18 +34,24 @@
     &lt;/choice>
   &lt;/define>
 </codeblock></p>
-    <p>For each element type that is extended by the element domain module, the module extends the
-      element type pattern with a <xmlatt>combine</xmlatt> value of "choice" that contains a
-      reference to the domain extension pattern. Because the pattern uses a <xmlatt>combine</xmlatt>
-      value of "choice", the effect is that the domain-provided elements are automatically added to
-      the effective content model of the extended element in any grammar that includes the domain
-      module.</p>
+    <p>For each element type that is extended by the element domain
+      module<?oxy_insert_start author="chris" timestamp="20200705T163915-0400"?> that is not meant
+      for use with mix-ins<?oxy_insert_end?>, the module extends the element type pattern with a
+        <xmlatt>combine</xmlatt> value of "choice" that contains a reference to the domain extension
+      pattern. Because the pattern uses a <xmlatt>combine</xmlatt> value of "choice", the effect is
+      that the domain-provided elements are automatically added to the effective content model of
+      the extended element in any grammar that includes the domain module.</p>
     <p otherprops="examples">For example, the following pattern adds the highlighting domain
       specializations of the <xmlelement>ph</xmlelement> element to the content model of the
         <xmlelement>ph</xmlelement>
       element:<codeblock>  &lt;define name="ph" combine="choice">
     &lt;ref name="hi-d-ph"/>
   &lt;/define></codeblock></p>
+    <?oxy_insert_start author="chris" timestamp="20200705T164003-0400"?>
+    <p>For element domains meant for use with mix-ins, the integration of the elements declared in
+      the domain will be included in the content model specialization module(s) to which it is
+      applied.</p>
+    <?oxy_insert_end?>
     <!--<section id="including-foreign"><title>Inclusion of foreign vocabularies</title><p>In order to enable the generation of DTD- and XSD-based versions of the RELAX NG vocabulary, domain modules that include foreign vocabularies by using the <xmlelement>externalRef</xmlelement> element <term outputclass="RFC-2119" rev="terminology">SHOULD</term> specify the following attributes:</p><dl><dlentry><dt><xmlatt>ditaarch:dtdSystemId</xmlatt></dt><dd>(DTD; optional) Specifies the system ID URI as it should be specified on the external parameter-entity reference to the foreign vocabulary module</dd></dlentry><dlentry><dt><xmlatt>ditaarch:dtdPublicId</xmlatt></dt><dd>(DTD) Specifies the public ID or URN as it should be specified on the external parameter-entity reference to the foreign vocabulary module</dd></dlentry><dlentry><dt><xmlatt>ditaarch:xsdURI</xmlatt></dt><dd>(XSD) Specifies the URI reference as it should be specified on the <xmlatt>schemalLocation</xmlatt> attribute on the <xmlelement>import</xmlelement> element or <xmlelement>include</xmlelement> element</dd></dlentry><dlentry><dt><xmlatt>ditaarch:xsdTargetNamespace</xmlatt></dt><dd>(XSD; required when the Schema targets a namespace) Specifies the namespace that the XML Schema targets</dd></dlentry></dl></section>-->
     <!--<example id="example-rng-foreign"><title>Example: RELAX NG <ph rev="review-2">pattern</ph> that includes a foreign vocabulary</title><p>The following code example illustrates markup in a RELAX NG vocabulary module that enables the generation of DTD and XSD-based modules.</p><codeblock>
     &lt;div>&lt;a:documentation>LONG NAME: RNG Grammar Container&lt;/a:documentation>
@@ -58,5 +71,6 @@
       &lt;/define>
     &lt;/div>
 </codeblock></example>-->
- </conbody>
+  </conbody>
 </concept>
+<?oxy_options track_changes="on"?>

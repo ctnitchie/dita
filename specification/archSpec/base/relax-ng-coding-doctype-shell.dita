@@ -52,12 +52,21 @@
         </dd>
       </dlentry>
       <dlentry id="content-constraint">
-        <dt>Content constraint integration</dt>
+        <dt>Content
+          <?oxy_delete author="chris" timestamp="20200705T160944-0400" content="constraint"?><?oxy_insert_start author="chris" timestamp="20200705T160944-0400"?>model
+          specialization<?oxy_insert_end?> integration</dt>
         <dd>
-          <p>The document-type shell must include any constraint modules. Constraint modules include
-            the module they override and override the patterns that they constrain directly in the
-            constraint module itself. Any module that is constrained in this section (including the
-            base topic or map modules) will be left out of the following section.</p>
+          <p>The document-type shell must include any
+            <?oxy_delete author="chris" timestamp="20200705T160955-0400" content="constraint"?><?oxy_insert_start author="chris" timestamp="20200705T160955-0400"?>content
+            model specialization<?oxy_insert_end?> modules.
+            <?oxy_delete author="chris" timestamp="20200705T161005-0400" content="Constraint"?><?oxy_insert_start author="chris" timestamp="20200705T161005-0400"?>Content
+            model specialization<?oxy_insert_end?> modules include the module they override and
+            override the patterns that they
+            <?oxy_delete author="chris" timestamp="20200705T161031-0400" content="constrain"?><?oxy_insert_start author="chris" timestamp="20200705T161031-0400"?>modify<?oxy_insert_end?>
+            directly in the constraint module itself. Any module that is
+            <?oxy_delete author="chris" timestamp="20200705T161044-0400" content="constrained"?><?oxy_insert_start author="chris" timestamp="20200705T161044-0400"?>modified<?oxy_insert_end?>
+            in this section (including the base topic or map modules) will be left out of the
+            following section.</p>
           <p otherprops="examples">For example, when the following constraint
             is included for the task module, the task module itself will <i>not</i> be included in
             the shell; the task module itself is included within
@@ -165,3 +174,4 @@
     </dl>
   </conbody>
 </concept>
+<?oxy_options track_changes="on"?>

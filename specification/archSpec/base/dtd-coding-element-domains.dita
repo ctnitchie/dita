@@ -13,7 +13,10 @@
         <dt>Parameter entity name</dt>
         <dd>
           <p>The name of the parameter entity is the abbreviation for the domain, followed by a
-            hyphen ("-"), and the name of the element that is extended.</p>
+            hyphen ("-"), and the name of the element that is
+            extended.<?oxy_insert_start author="chris" timestamp="20200705T174055-0400"?> For
+            domains intended for use with mix-in modules, the entity name must also carry the suffix
+              <codeph>-mixin</codeph>.<?oxy_insert_end?></p>
         </dd>
       </dlentry>
       <dlentry>
@@ -26,14 +29,28 @@
       </dlentry>
     </dl>
     <example id="example" otherprops="examples">
-      <title>Example</title>
+      <title><?oxy_delete author="chris" timestamp="20200705T174129-0400" content="Example"?><?oxy_insert_start author="chris" timestamp="20200705T174129-0400"?>Global
+        element domain<?oxy_insert_end?></title>
       <p otherprops="examples">Because the highlighting domain extends the
           <xmlelement>ph</xmlelement> element, the entity declaration file for that domain must
         include a parameter entity corresponding to the <xmlelement>ph</xmlelement> element. The
         name of the entity uses the short name of the domain (<codeph>hi-d</codeph>) followed by the
         name of the base element. The value includes each specialization of
           <xmlelement>ph</xmlelement> in the domain.</p>
-      <codeblock>&lt;!ENTITY % hi-d-ph "b | u | i | <ph >line-through | overline |</ph> tt | sup | sub"></codeblock>
+      <codeblock>&lt;!ENTITY % hi-d-ph "b | u | i | <ph>line-through | overline |</ph> tt | sup | sub"></codeblock>
     </example>
+    <?oxy_insert_start author="chris" timestamp="20200705T174137-0400"?>
+    <example>
+      <title>Mix-in element domain</title>
+      <p>A content architect wishes to add a specialization of <xmlelement>p</xmlelement> called
+          <xmlelement>extendedDetails</xmlelement> and make it available only to certain elements,
+        not globally. The entity file for this specialization must still declare an entity listing
+        the specialization of <xmlelement>p</xmlelement>, but in this case the name of the entity is
+        the name of the domain (<codeph>extendedDetails-d</codeph>), follwed by the name of the base
+        element, followed by <codeph>-mixin</codeph>.</p>
+      <codeblock>&lt;!ENTITY % extendedDetails-d-p-mixin "extendedDetails"></codeblock>
+    </example>
+    <?oxy_insert_end?>
   </conbody>
 </concept>
+<?oxy_options track_changes="on"?>

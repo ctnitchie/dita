@@ -19,9 +19,9 @@
     <conbody>
         <example>
             <ol id="ol_y21_cyw_dmb">
-                <li>First, the content architect creates the mix-in module for the
+                <li>First, the content architect creates the attribute domain module for the
                         <xmlatt>cell-purpose</xmlatt> attribute,
-                        <filepath>acme-cellPurposeAttMixinDomain.ent</filepath>.<codeblock>&lt;!-- Define the attribute -->
+                        <filepath>acme-cellPurposeAttMixin.ent</filepath>.<codeblock>&lt;!-- Define the attribute -->
 &lt;!ENTITY % cellPurposeAtt-d-attribute-mixin
   "cell-purpose  (sale | out-of-stock | new | last-chance | inherit | none)  #IMPLIED"
 &gt;
@@ -37,10 +37,10 @@
 &lt;!ATTLIST stentry %cellPurposeAtt-d-attribute-mixin;></codeblock><note>The
                         attribute definition entity ends in <codeph>-mixin</codeph>, indicating that
                         this is a mix-in attribute, and should not be included in the
-                            <parameterentity>base-attribute-extensions</parameterentity> entity in
+                            <parameterentity>props-attribute-extensions</parameterentity> entity in
                         the document type shell.</note><note>In this example, the attribute
                         declaration and its assignment to elements are combined into the same
-                        module. A more robust approach would be to separate each
+                        module. A more flexible approach would be to separate each
                             <codeph>&lt;!ATTLIST</codeph> declaration in its own separate mix-in
                         module, thus allowing document type shell authors to decide the elements to
                         which to apply the attribute. However, this formulation is also acceptable,
@@ -52,7 +52,7 @@
 
 &lt;!ENTITY % cellPurposeAttMixin-d-dec
   PUBLIC "-//ACME//ENTITIES DITA Cell Purpose Attribute Mix-in//EN"
-         "cellPurposeAttMixinDomain.ent"
+         "cellPurposeAttMixin.ent"
 >%cellPurposeAttMixin-d-dec;</codeblock></li>
                 <li>After updating the <filepath>catalog.xml</filepath> file to include the new
                     domain modules and the mix-in module, the work is done.</li>

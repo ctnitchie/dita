@@ -144,6 +144,14 @@
      %sw-d-pre; | 
      %ui-d-pre;">]]></codeblock></p>
                 </dd>
+                <?oxy_insert_start author="chris" timestamp="20200705T183154-0400"?>
+                <dd>
+                    <note>Domain specializations declared as mix-ins - meaning the domain's entity
+                        name ends in <codeph>-mixin</codeph> - should not be included here. Such
+                        domains will be integrated into specific content models in dedicated mix-in
+                        modules.</note>
+                </dd>
+                <?oxy_insert_end?>
             </dlentry>
             <dlentry id="domain-attribute-extensions">
                 <dt> Domain attribute extensions </dt>
@@ -165,6 +173,16 @@
          %othernewfrombaseAtt-d-attribute;"&gt;
 </codeblock></p>
                 </dd>
+                <?oxy_insert_start author="chris" timestamp="20200705T182937-0400"?>
+                <dd>
+                    <note>Domain attribute extensions declared as mix-ins - meaning the attribute
+                        declaration entity ends in <codeph>-mixin</codeph> - should not be included
+                        in <parameterentity>props-attribute-extensions</parameterentity> or
+                            <parameterentity>base-attribute-extensions</parameterentity>. They will
+                        be integrated into specific elements either in a dedicated mix-in module or
+                        in the module declaring the attribute domain.</note>
+                </dd>
+                <?oxy_insert_end?>
             </dlentry>
             <dlentry id="topic-nesting-overrides">
                 <dt> Topic nesting override </dt>
@@ -201,15 +219,23 @@
                 </dd>
             </dlentry>
             <dlentry id="content-constraint-integration">
-                <dt> Content constraint integration </dt>
+                <dt> Content
+                    <?oxy_delete author="chris" timestamp="20200705T173355-0400" content="constraint"?><?oxy_insert_start author="chris" timestamp="20200705T173355-0400"?>model
+                    specialization<?oxy_insert_end?> integration </dt>
                 <dd>
-                    <p>For each constraint module that is integrated into the document-type shell,
-                        this section declares and references the external module file where the
-                        constraint is defined. The parameter entity is named
-                                <codeph><varname>constraintName</varname>-c-def</codeph>.</p>
+                    <p>For each
+                        <?oxy_delete author="chris" timestamp="20200705T173400-0400" content="constraint"?><?oxy_insert_start author="chris" timestamp="20200705T173400-0400"?>content
+                        model specialization<?oxy_insert_end?> module that is integrated into the
+                        document-type shell, this section declares and references the external
+                        module file where the
+                        <?oxy_delete author="chris" timestamp="20200705T173415-0400" content="constraint"?><?oxy_insert_start author="chris" timestamp="20200705T173415-0400"?>content
+                        model specialization<?oxy_insert_end?> is defined. The parameter entity is
+                        named
+                                <codeph><varname><?oxy_delete author="chris" timestamp="20200705T173428-0400" content="constraint"?><?oxy_insert_start author="chris" timestamp="20200705T173428-0400"?>specialization<?oxy_insert_end?>Name</varname>-c-def</codeph>.</p>
                     <p otherprops="examples">In the following example, the constraint module that
-                        constrains the content model for the <xmlelement>taskbody</xmlelement>
-                        element is integrated into the document-type shell for strict
+                        <?oxy_delete author="chris" timestamp="20200705T173439-0400" content="constrains"?><?oxy_insert_start author="chris" timestamp="20200705T173439-0400"?>modifies<?oxy_insert_end?>
+                        the content model for the <xmlelement>taskbody</xmlelement> element is
+                        integrated into the document-type shell for strict
                         task:<codeblock>&lt;!ENTITY % strictTaskbody-c-def  
   PUBLIC "-//OASIS//ELEMENTS DITA 1.3 Strict Taskbody Constraint//EN" 
   "strictTaskbodyConstraint.mod"
@@ -272,3 +298,4 @@
         </dl>
     </conbody>
 </concept>
+<?oxy_options track_changes="on"?>

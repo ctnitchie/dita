@@ -31,39 +31,41 @@
        unconstrained content model for the element. Only optional elements may be removed, and
        required orderings must be maintained.</li>
       <li>Elements added to content models by mix-ins must be specializations of existing elements
-       from the content model, and must be allowed only where their specialization base is allowed.
+       from the content model, and must only be allowed where their specialization base is allowed.
        For example, when creating a mix-in adding a specialization of <xmlelement>data</xmlelement>
        to <xmlelement>ol</xmlelement>, the element must only be allowed before any
         <xmlelement>li</xmlelement> elements, as that is the only place
         <xmlelement>data</xmlelement> is allowed.</li>
-      <li>Content models including mix-ins including elements whose specialization base is allowed
-       only once must either allow a choice between the unspecialized element and the specialized
-       element, or require the use of the specialized element instead of the base element. For
-       example, consider a mix-in adding a <xmlelement>nomarkuptitle</xmlelement> element
-       specialized from <xmlelement>title</xmlelement> to the <xmlelement>topic</xmlelement>
-       element. The modified content model must either remove <xmlelement>title</xmlelement> or
-       provide an "exactly-once" choice between <xmlelement>title</xmlelement> and
-        <xmlelement>nomarkuptitle</xmlelement>. It must not allow both
-        <xmlelement>title</xmlelement> and <xmlelement>nomarkuptitle</xmlelement> to exist inside
-       the same <xmlelement>topic</xmlelement> element.</li>
+      <li>Mix-ins applied to elements that are allowed only once in the content model must either
+       allow a choice between the base element and the specialized element, or require the use of
+       the specialized element instead of the base element. For example, consider a mix-in adding a
+        <xmlelement>nomarkuptitle</xmlelement> element specialized from
+        <xmlelement>title</xmlelement> to the <xmlelement>topic</xmlelement> element. The modified
+       content model must either remove <xmlelement>title</xmlelement> or provide an "exactly-once"
+       choice between <xmlelement>title</xmlelement> and <xmlelement>nomarkuptitle</xmlelement>. It
+       must not allow both <xmlelement>title</xmlelement> and <xmlelement>nomarkuptitle</xmlelement>
+       to exist inside the same <xmlelement>topic</xmlelement> element.</li>
      </ul>
      <p>Mix-in modules must not include the grammar definitions of the elements being added. Such
-      elements must be defined in separate specialization modules and referenced from the mix-in.
-      Attributes may either be declared in the same module or separately.</p>
+      elements must be defined in separate domain specialization modules and referenced from the
+      mix-in.</p>
+     <p>Attribute domain modules meant for use as mix-ins MAY integrate their attributes into the
+      target attribute lists in the same module. They may also be integrated in dedicated mix-in
+      modules.</p>
      <p>The content model of an element can be modified by only one content model specialization
       module. If several content model specialization modules exist that modify the content model of
       a specific element, those modules must be replaced with a new module that reflects the
       aggregation of the original content model specialization modules.</p>
-     <p>The attributes of an element may be contributed to from any number of mix-in modules.
-      However, only one constraint module may be applied to the attributes of a given element type.
-      If multiple constraints need to be applied to a given element's attributes, they must be
-      replaced by a new constraint that aggregates them together.</p>
-     <p>A constraint cannot remove attributes contributed by mix-ins. One solution to this is for
-      attribute mix-ins to be authored in a granular manner with separate modules contributing a
-      single attribute to a single element. This allows the authors of document type shells to
-      control the applicability of various mix-in attributes. This level of granularity is not
-      required, but should be considered a best practice for attribute mix-ins whose applicability
-      is not known by the mix-in author.</p>
+     <p>The attributes of an element may be contributed to from any number of attribute domain
+      mix-in modules. However, only one constraint module may be applied to the attributes of a
+      given element type. If multiple constraints need to be applied to a given element's
+      attributes, they must be replaced by a new constraint that aggregates them together.</p>
+     <p>A constraint cannot remove attributes contributed by mix-ins. Instead, attribute mix-ins can
+      be authored in a granular manner with individual mix-in modules contributing a single
+      attribute to a single element. This allows the authors of document type shells to control the
+      applicability of various mix-in attributes by adding or removing mix-in declarations. This
+      level of granularity is not required, but should be considered a best practice for attribute
+      mix-ins whose applicability is not known by the mix-in author.</p>
      <?oxy_insert_end?>
     </dd>
    </dlentry>

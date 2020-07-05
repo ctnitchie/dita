@@ -238,12 +238,21 @@ to alert more birds to the presence of your bird feeder.&lt;/shortdesc&gt;
         is "twenty-four hour", then the effective sort phrase would be "twenty-four hour24 Hour
         Support Hotline".</p>
       <p id="rng-attribute-domain-name">An attribute domain's name is the name of the attribute plus
-          <keyword>Att</keyword>. For example, for the attribute named
-          <xmlatt>deliveryTarget</xmlatt>, the attribute domain name is "deliveryTargetAtt". The
+          <keyword>Att</keyword>. <?oxy_insert_start author="chris" timestamp="20200705T172245-0400"?>
+        <?oxy_insert_end?>For example, for the attribute named <xmlatt>deliveryTarget</xmlatt>, the
+        attribute domain name is
+        "deliveryTargetAtt".<?oxy_insert_start author="chris" timestamp="20200705T172327-0400"?> An
+        attribute domain that contributed an attribute named <xmlatt>cellPurpose</xmlatt> as a
+        mix-in to table elements would be called "cellPurposeAttMixin".<?oxy_insert_end?> The
         attribute domain name is used to construct pattern names for the domain. </p>
       <p id="dtd-attribute-domain-name">An attribute domain's name is the name of the attribute plus
-          <keyword>Att</keyword>. For example, for the attribute named
-          <xmlatt>deliveryTarget</xmlatt>, the attribute domain name is "deliveryTargetAtt". The
+          <keyword>Att</keyword>.
+        <?oxy_insert_start author="chris" timestamp="20200705T182015-0400"?>A mix-in attribute
+        domain must also carry the suffix <keyword>Mixin</keyword>. <?oxy_insert_end?>For example,
+        for the attribute named <xmlatt>deliveryTarget</xmlatt>, the attribute domain name is
+        "deliveryTargetAtt".<?oxy_insert_start author="chris" timestamp="20200705T182029-0400"?> An
+        attribute domain that contributed an attribute named <xmlatt>cellPurpose</xmlatt> as a
+        mix-in to table elements would be called "cellPurposeAttMixin".<?oxy_insert_end?> The
         attribute domain name is used to construct entity names for the domain. </p>
                 </section>
 

@@ -23,14 +23,16 @@
                 <li>First, the content architect must create a domain specialization declaring the
                         <xmlelement>section-shortdesc</xmlelement> element.<ol id="ol_plt_2ng_dmb">
                         <li>He creates an entity declaration file for the domain,
-                                <filepath>sectionShortdescDomain.ent</filepath>.<codeblock>&lt;!ENTITY % section-shortdesc "section-shortdesc"></codeblock><note>This
-                                entity file does not declare a
-                                    <parameterentity>sectionShortdesc-d-p</parameterentity> entity,
-                                even though <xmlelement>section-shortdesc</xmlelement> will be
-                                specialized from <xmlelement>p</xmlelement>. The content architect
-                                only wants to allow this element within
-                                    <xmlelement>section</xmlelement>, not everywhere
-                                    <xmlelement>p</xmlelement> is allowed.</note></li>
+                                <filepath>sectionShortdescDomain.ent</filepath>.<codeblock>&lt;!ENTITY sectionShortdesc-d-p-mixin "section-shortdesc">
+
+&lt;!ENTITY % section-shortdesc "section-shortdesc"></codeblock><note>This
+                                entity file declares a
+                                    <parameterentity>sectionShortdesc-d-p-mixin</parameterentity>
+                                entity, not <parameterentity>sectionShortdesc-d-p</parameterentity>,
+                                indicating that the mix-in nature of this domain. The content author
+                                wants to control exactly where this element is allowed, and not
+                                allow it everywhere <xmlelement>p</xmlelement> is
+                            allowed.</note></li>
                         <li>He creates a DTD module defining the content model and attributes of the
                                 <xmlelement>section-shortdesc</xmlelement> element,
                                 <filepath>sectionShortdescDomain.mod</filepath>.<codeblock>&lt;!ENTITY % section-shortdesc.content "(%para.cnt;)*">
@@ -150,7 +152,7 @@
                %fn; |
                %indexterm; |
                %required-cleanup; <b>|
-               %section-shortdesc;</b>)*"
+               %sectionShortdesc-d-p-mixin;</b>)*"
 >
 </codeblock></li>
                 <li>Finally, the content architect must integrate this mix-in module into the DTD

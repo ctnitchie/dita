@@ -47,7 +47,7 @@
   <?oxy_insert_start author="chris" timestamp="20200627T183157-0400" type="surround"?>
   <draft-comment author="chris"
    ><?oxy_insert_end?><?oxy_insert_start author="chris" timestamp="20200627T183201-0400"?>Removing
-   these paragraphs, since it imposes a requirement on <xmlatt>domains</xmlatt>, which no longer
+   this paragraphs, since it imposes a requirement on <xmlatt>domains</xmlatt>, which no longer
     exists.<?oxy_insert_end?><p>A constrained document type allows only a subset of the possible
     instances of the unconstrained document type. Thus, for a processor to determine whether a
     document instance is compatible with another document type, the document instance <term
@@ -66,4 +66,5 @@
    type.<?oxy_delete author="chris" timestamp="20200627T183404-0400" content=" "?></p>
  </conbody>
 </concept>
+
 <?oxy_options track_changes="on"?>
